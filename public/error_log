@@ -1,0 +1,15 @@
+[30-May-2017 18:18:17 UTC] PHP Fatal error:  Class 'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider' not found in /home/amirgee007/public_html/fackoutfinal/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[30-May-2017 18:21:22 UTC] PHP Fatal error:  Class 'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider' not found in /home/amirgee007/public_html/fackoutfinal/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[30-May-2017 18:48:23 UTC] PHP Fatal error:  Class 'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider' not found in /home/amirgee007/public_html/fackoutfinal/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[31-May-2017 20:58:15 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 20:58:54 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:05:50 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:05:51 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:05:55 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:05:56 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:05:56 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:06:03 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:06:19 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:06:34 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:06:46 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345
+[31-May-2017 21:06:47 UTC] PHP Warning:  putenv(): Invalid parameter syntax in /home/amirgee007/public_html/fackoutfinal/vendor/vlucas/phpdotenv/src/Loader.php on line 345

@@ -1,0 +1,4 @@
+*.sqlite
+/.env
+
+#git rm --cached .env
