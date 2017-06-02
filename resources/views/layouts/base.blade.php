@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>
         @section('title')
-            | FakeOut App
+            | Fakeout Ticket Solutions app
         @show
     </title>
 
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
+    <!-- template skin -->
+    <link id="t-colors" href="" rel="stylesheet">
 
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/jumbotron.css') }}" rel="stylesheet">
-    <link href="{{ asset('/js/jquery.min.js') }}" rel="script">
-    <link href="{{ asset('/js/bootstrap.min.js') }}" rel="script">
+    <link href="{{ asset('/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/nivo-lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/color/default.css') }}" rel="stylesheet">
+
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -34,49 +39,95 @@
 
     <![endif]-->
 </head>
-<body>
 
-<div class="container">
-    <div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="{{ Request::is('/') ? 'active' : '' }}"><a
-                            href="{{ action("PagesController@base") }}">Home</a></li>
-                @if (Auth::guest())
-                    <li role="presentation" class="{{ Request::is('login') ? 'active' : '' }}"><a
-                                href="{{ action("Auth\LoginController@login") }}">Login</a></li>
-                    <li role="presentation" class="{{ Request::is('register') ? 'active' : '' }}"><a
-                                href="{{ action("Auth\RegisterController@register") }}">Register</a></li>
-                @else
-                    <li role="presentation" class="{{ Request::is('app') ? 'active' : '' }}"><a
-                                href="{{ action("AppController@appLaunch") }}">App</a></li>
-                    <li role="presentation"><a
-                                href="{{ url('/logout') }}"
-                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Logout</a></li>
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                @endif
-                <li role="presentation" class="{{ Request::is('about') ? 'active' : '' }}"><a
-                            href="{{ action("PagesController@about") }}">About</a></li>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
-            </ul>
-        </nav>
-        <h3 class="text-muted">FakeOut</h3>
-    </div>
 
-    @yield('content')
+<div id="wrapper">
 
-    <footer class="footer">
-        <p>&copy; 2017 expressotur</p>
-        UNIX timestamp: {{ time() }}.
+    <nav class="navbar navbar-custom" role="navigation">
+        <div class="container navigation">
 
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="{{ action("PagesController@base") }}">
+                    <img src="img/logo.png" alt="" width="150" height="40" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <li><div id="cart"></div></li>
+                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ action("PagesController@base") }}">Home</a></li>
+                    <li class="{{ Request::is('/about') ? 'active' : '' }}"><a href="{{ action("PagesController@about") }}">About</a></li>
+                    <li class="{{ Request::is('/features') ? 'active' : '' }}"><a href="#">Features <span class="label label-danger"></span></a> </li>
+                    <li class="{{ Request::is('/register') ? 'active' : '' }}"><a href="{{ action("Auth\RegisterController@register") }}">Register <span class="label label-danger"></span></a> </li>
+                    <li class="{{ Request::is('/login') ? 'active' : '' }}"><a href="{{ action("Auth\LoginController@login") }}">Login <span class="label label-danger"></span></a> </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </nav>
+
+@yield('content')
+
+    <footer>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+
+                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                            <div class="text-left">
+                                <p>&copy;2017Copyright - Fakeout. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="wow fadeInRight" data-wow-delay="0.1s">
+                            <div class="text-right margintop-30">
+                                <div class="credits">
+                                    <!--
+                                        All the links in the footer should remain intact.
+                                        You can delete the links only if you purchased the pro version.
+                                        Licensing information: https://bootstrapmade.com/license/
+                                        Purchase the pro version form: https://bootstrapmade.com/buy/?theme=Appland
+                                    -->
+                                    <a href="https://bootstrapmade.com/free-one-page-bootstrap-themes-website-templates/">One Page Bootstrap Themes</a> by <a href="https://fakeoutapp.com/">Fakeout Ticket Solutions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
-</div> <!-- /container -->
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="{{ asset('/js/jquery.min.js') }}" rel="script">
+<link href="{{ asset('/js/bootstrap.min.js') }}" rel="script">
+<link href="{{ asset('/js/jquery.easing.min.js') }}" rel="script">
+<link href="{{ asset('/js/wow.min.js') }}" rel="script">
+<link href="{{ asset('/js/jquery.scrollTo.js') }}" rel="script">
+<link href="{{ asset('/js/nivo-lightbox.min.js') }}" rel="script">
+<link href="{{ asset('/js/custom.js') }}" rel="script">
+
+
 </body>
+
 </html>
+

@@ -3,8 +3,13 @@
     Login
     @parent
 @stop
+
 @section('content')
-<div class="container">
+
+    <section id="intro" class="intro">
+        <div class="intro-content">
+
+            <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -68,4 +73,8 @@
         </div>
     </div>
 </div>
+
+        </div>
+    </section>
+
 @endsection

@@ -1,0 +1,57 @@
+/*
+#1 color = #4ACCD1;
+#2 color = #3fbbc0;
+*/
+
+a:hover,
+a:focus {
+    color: #163457;
+}
+
+.circled {
+	background: #163457;
+}
+
+.con1 > div, .con2 > div, .con3 > div { 
+	background-color: #163457;
+}
+
+.scrollup:hover {
+	background: #163457;
+}
+
+
+/* button */
+.btn-skin {
+  background-color: #163457;
+  border-color: #163457;
+}
+
+
+/* menu */
+
+.navbar-custom ul.nav ul.dropdown-menu li a:hover {
+	color: #3fbbc0;
+}
+.navbar-custom.top-nav-collapse .nav li a:hover,
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li.active a,.navbar-custom.top-nav-collapse .nav li.active a  {
+    color: #3fbbc0;
+}
+
+
+
+.bg-skin {
+	background: #163457;
+}
+
+.highlight-color {
+	background-color: #163457;
+}
+.color {
+	color: #163457;
+}
+
+.form-control:focus {
+  border-color: #163457;
+}
