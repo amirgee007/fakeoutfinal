@@ -58,6 +58,42 @@
                 </ul>
             </li>
 
+            <li class="treeview {{ (Request::is('admin/promoter') ? 'active' : '') }}">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>Promoters</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-red"></i> Add New </a></li>
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-yellow"></i> View All</a></li>
+                </ul>
+            </li>
+
+
+
+            <li class="treeview {{ (Request::is('admin/organizer') ? 'active' : '') }}">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>Organizer</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-red"></i> Add New </a></li>
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-yellow"></i> View All</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview {{ (Request::is('admin/event') ? 'active' : '') }}">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>Events</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-red"></i> Add New </a></li>
+                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-yellow"></i> View All</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->
