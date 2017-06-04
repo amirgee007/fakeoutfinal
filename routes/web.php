@@ -80,9 +80,10 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
 });
 
 
+Route::get('/', 'PagesController@base')->name('index');
 
-Route::get('/', 'PagesController@base');
 Route::post('/registernew', 'PagesController@register');
+
 Route::get('/about', 'PagesController@about');
 
 

@@ -53,19 +53,18 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{{ action("PagesController@base") }}">
-                    <img src="img/logo.png" alt="" width="150" height="40" />
+                    <img src="/img/logo.png" alt="" width="150" height="40" />
                 </a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li><div id="cart"></div></li>
-                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ action("PagesController@base") }}">Home</a></li>
-                    <li class="{{ Request::is('/about') ? 'active' : '' }}"><a href="{{ action("PagesController@about") }}">About</a></li>
-                    <li class="{{ Request::is('/features') ? 'active' : '' }}"><a href="#">Features <span class="label label-danger"></span></a> </li>
-                    <li class="{{ Request::is('/register') ? 'active' : '' }}"><a href="{{ action("Auth\RegisterController@register") }}">Register <span class="label label-danger"></span></a> </li>
-                    <li class="{{ Request::is('/login') ? 'active' : '' }}"><a href="{{ action("Auth\LoginController@login") }}">Login <span class="label label-danger"></span></a> </li>
+                    <li class="{{ \Route::is('index') || Request::is('app') ? 'active' : '' }}"><a href="{{ action("PagesController@base") }}">Home</a></li>
+                    <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ action("PagesController@about") }}">About</a></li>
+                    <li class="{{ Request::is('features') ? 'active' : '' }}"><a href="#">Features <span class="label label-danger"></span></a> </li>
+                    <li class="{{ Request::is('register') ? 'active' : '' }}"><a href="{{ action("Auth\RegisterController@register") }}">Register <span class="label label-danger"></span></a> </li>
+                    <li class="{{ Request::is('login') ? 'active' : '' }}"><a href="{{ action("Auth\LoginController@login") }}">Login <span class="label label-danger"></span></a> </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -104,7 +103,7 @@
                                         Licensing information: https://bootstrapmade.com/license/
                                         Purchase the pro version form: https://bootstrapmade.com/buy/?theme=Appland
                                     -->
-                                    <a href="https://bootstrapmade.com/free-one-page-bootstrap-themes-website-templates/">One Page Bootstrap Themes</a> by <a href="https://fakeoutapp.com/">Fakeout Ticket Solutions</a>
+                                    Developed By: <a href="https://seersol.com/">Seer Solutions</a>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +115,6 @@
 
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-
 
 <link href="{{ asset('/js/jquery.min.js') }}" rel="script">
 <link href="{{ asset('/js/bootstrap.min.js') }}" rel="script">
