@@ -85,6 +85,7 @@ Route::get('/', 'PagesController@base')->name('index');
 Route::post('/registernew', 'PagesController@register');
 
 Route::get('/about', 'PagesController@about');
+//Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 // Event manipulation section
@@ -93,7 +94,7 @@ Route::get('/event/add', 'AppController@eventAdd');
 Route::get('/event/edit', 'AppController@eventEdit');
 Route::post('/event/add', 'AppController@Add');
 Route::get('/event/list/{id}', 'AppController@eventList');
-Route::get('/app', 'AppController@appLaunch');
+Route::get('/app', 'AppController@appLaunch')->name('app');
 
 Auth::routes();
 

@@ -62,12 +62,13 @@
                     <li><div id="cart"></div></li>
 
 
-                    <li class="{{ \Route::is('index') || Request::is('app') ? 'active' : '' }}"><a href="{{ action("PagesController@base") }}">Home</a></li>
+                    <li class="{{ \Route::is('index')? 'active' : '' }}"><a href="{{ action("PagesController@base") }}">Home</a></li>
                     <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ action("PagesController@about") }}">About</a></li>
                     <li class="{{ Request::is('features') ? 'active' : '' }}"><a href="#">Features <span class="label label-danger"></span></a> </li>
 
-                    @if (Auth::guard($guard)->check())
-                        <li class="{{ Request::is('app') ? 'active' : '' }}"><a href="{{ action("Auth\RPagesController@app") }}">App <span class="label label-danger"></span></a> </li>
+                    @if (\Auth::guard('web')->check())
+                        <li class="{{ Request::is('app') ? 'active' : '' }}"><a href="{{ route('app') }}">App <span class="label label-danger"></span></a> </li>
+                        <li class=""><a href="{{ route('logout') }}">Logout <span class="label label-danger"></span></a> </li>
 
                     @else
                         <li class="{{ Request::is('register') ? 'active' : '' }}"><a href="{{ action("Auth\RegisterController@register") }}">Register <span class="label label-danger"></span></a> </li>
