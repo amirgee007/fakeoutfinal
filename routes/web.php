@@ -97,9 +97,6 @@ Route::get('/app', 'AppController@appLaunch');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
-
 //api routes
 Route::get('/api', 'ApiController@api');
 Route::post('/api/createToken', 'ApiController@createToken');

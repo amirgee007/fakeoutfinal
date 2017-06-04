@@ -15,7 +15,7 @@ class PagesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest');
+//        $this->middleware('guest');
     }
 
     public function base()
@@ -26,16 +26,16 @@ class PagesController extends Controller
     {
         return view('pages/login');
     }
+
     public function register(Request $request)
     {
 
         $newUser =  User::create($request->all());
-
         Notification::forSomeoneRegister($newUser);
-
         return view('pages/app');
 
     }
+
     public function about()
     {
         return view('pages/about');
