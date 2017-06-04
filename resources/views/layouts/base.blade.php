@@ -125,8 +125,8 @@
 <link href="{{ asset('/js/jquery.scrollTo.js') }}" rel="script">
 <link href="{{ asset('/js/nivo-lightbox.min.js') }}" rel="script">
 <link href="{{ asset('/js/custom.js') }}" rel="script">
-
-
+{{--<script type="text/javascript">jssor_1_slider_init();</script>--}}
+@yield('footer_script')
 </body>
 
 </html>
