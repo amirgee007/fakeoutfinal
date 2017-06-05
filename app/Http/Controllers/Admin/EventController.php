@@ -61,7 +61,6 @@ class EventController extends Controller
     }
 
 
-
     public function destroy($id){
 
         $event = Event::where('id' , $id)->first();
@@ -89,7 +88,7 @@ class EventController extends Controller
         }
 
     }
-    // Add logic
+
     public function eventList($data)
     {
         $id = Auth::id();
@@ -98,7 +97,6 @@ class EventController extends Controller
         return view('pages/event/list', ['data' => $events, 'codes' => $codes]);
 
     }
-
 
     protected function attemptAdd(Request $request)
     {
@@ -120,4 +118,75 @@ class EventController extends Controller
                 'eventName' => "Error occured",
             ]);
     }
+
+
+    ////////////////////for Promoter type/////////////////////////
+    public function promoterIndex()
+    {
+        $events = Event::all();
+
+        return view('admin.promoterEvent.index', compact('events'));
+
+    }
+
+    public function promoterCreate( Request $request)
+    {
+
+        $events = Event::all();
+
+        return view('admin.promoterEvent.index', compact('events'));
+
+    }
+
+    public function promoterStore(Request $request)
+    {
+
+        if ($request->isMethod('post')) {
+
+            $id = Auth::id();
+
+            $event  =  Event::firstOrCreate(array('name' => $request->input('eventName'), 'owner_id' => $id));
+
+            foreach(preg_split("/((\r?\n)|(\r\n?))/", $request->input('eventCodes')) as $code){
+
+                $code  =  Code::firstOrCreate(array('event_id' => $event->id, 'code' => $code));
+
+
+                $code->update(
+
+                    array('event_id' => $event->id, 'code' => $code->code, 'state' => 'true')
+
+                );
+            }
+
+            if ($event){
+                session()->flash('alert-success', 'Event has been Successfully Created!');
+                return back();
+            }
+
+            session()->flash('alert-info', 'Error in Insertion');
+
+            return back();
+
+
+        }
+
+    }
+
+
+    public function promoterEdit()
+    {
+        $id = Auth::id();
+        $events = \DB::table('events')->where('owner_id', $id)->get();
+
+        if (isset($events)){
+
+            return view('pages/event/edit', ['data' => $events]);
+        }else{
+            return view('pages/event/edit');
+        }
+
+    }
+
+
 }

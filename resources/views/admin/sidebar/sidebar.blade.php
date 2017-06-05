@@ -58,14 +58,15 @@
                 </ul>
             </li>
 
-            <li class="treeview {{ (Request::is('admin/promoter') ? 'active' : '') }}">
+            <li class="treeview {{ (Request::is('admin/promoterEvents') ? 'active' : '') }}">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>Promoters</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-red"></i> Add New </a></li>
-                    <li><a href="{{route('event.index')}}"><i class="fa fa-circle-o text-yellow"></i> View All</a></li>
+                    <li><a href="{{route('promoterEvents.index')}}"><i class="fa fa-circle-o text-red"></i> View All Events </a></li>
+                    <li><a href="{{route('promoterEvents.create')}}"><i class="fa fa-circle-o text-yellow"></i> Add Event</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Create Account</a></li>
                 </ul>
             </li>
 

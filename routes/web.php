@@ -6,6 +6,11 @@ Route::get('/admin', 'AdminAuth\AuthController@showLoginForm');
 Route::post('/adminlogin', 'AdminAuth\AuthController@login');
 
 
+Route::get('/logoutApp', array(
+    'as' => 'logoutApp',
+    'uses' => 'Auth\LoginController@logout'));
+
+
 Route::post('/notification', function(){
     return \App\FakeOut\Helper::readNotifications();
 })->name('read.notifications');
@@ -77,6 +82,35 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
         'uses' => 'Admin\EventController@destroy'));
 
 
+
+////////////////////////////////PromoterEvents Routes///////////////////////////////////
+    Route::get('/promoterEvents', array(
+        'as' => 'promoterEvents.index',
+        'uses' => 'Admin\EventController@promoterIndex'));
+
+    Route::get('/promoterEvents/create', array(
+        'as' => 'promoterEvents.create',
+        'uses' => 'Admin\EventController@promoterCreate'));
+
+    Route::post('/promoterEvents/add', array(
+        'as' => 'promoterEvents.add',
+        'uses' => 'Admin\EventController@promoterStore'));
+
+
+    Route::get('/promoterEvents/{id}', array(
+        'as' => 'promoterEvents.edit',
+        'uses' => 'Admin\EventController@promoterEdit'));
+
+    Route::post('/promoterEvents/{id}', array(
+        'as' => 'promoterEvents.update',
+        'uses' => 'Admin\EventController@promoterUpdate'));
+
+
+    Route::get('/promoterEvents/delete/{id}', array(
+        'as' => 'promoterEvents.delete',
+        'uses' => 'Admin\EventController@promoterdestroy'));
+
+
 });
 
 
@@ -85,7 +119,6 @@ Route::get('/', 'PagesController@base')->name('index');
 Route::post('/registernew', 'PagesController@register');
 
 Route::get('/about', 'PagesController@about');
-//Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 // Event manipulation section

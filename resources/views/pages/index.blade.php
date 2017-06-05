@@ -7,6 +7,11 @@
 
 
 @section('header_styles')
+    <style>
+
+
+
+    </style>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="{{ asset('/css/slidermain.css') }}" rel="stylesheet">

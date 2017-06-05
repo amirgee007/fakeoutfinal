@@ -67,8 +67,8 @@
                     <li class="{{ Request::is('features') ? 'active' : '' }}"><a href="#">Features <span class="label label-danger"></span></a> </li>
 
                     @if (\Auth::guard('web')->check())
-                        <li class="{{ Request::is('app') ? 'active' : '' }}"><a href="{{ route('app') }}">App <span class="label label-danger"></span></a> </li>
-                        <li class=""><a href="{{ route('logout') }}">Logout <span class="label label-danger"></span></a> </li>
+                        <li class="{{ Request::is('app') || strpos(request()->url(), 'event') ? 'active' : '' }}"><a href="{{ route('app') }}">App <span class="label label-danger"></span></a> </li>
+                        <li class=""><a href="{{ route('logoutApp') }}">Logout <span class="label label-danger"></span></a> </li>
 
                     @else
                         <li class="{{ Request::is('register') ? 'active' : '' }}"><a href="{{ action("Auth\RegisterController@register") }}">Register <span class="label label-danger"></span></a> </li>
