@@ -129,18 +129,17 @@ class EventController extends Controller
 
     }
 
-    public function promoterCreate( Request $request)
+    public function promoterAdd( Request $request)
     {
 
-        $events = Event::all();
-
-        return view('admin.promoterEvent.index', compact('events'));
+        return view('admin.promoterEvent.add');
 
     }
 
     public function promoterStore(Request $request)
     {
 
+        dd($request->all());
         if ($request->isMethod('post')) {
 
             $id = Auth::id();

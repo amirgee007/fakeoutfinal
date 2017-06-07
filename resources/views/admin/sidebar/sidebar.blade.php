@@ -65,7 +65,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('promoterEvents.index')}}"><i class="fa fa-circle-o text-red"></i> View All Events </a></li>
-                    <li><a href="{{route('promoterEvents.create')}}"><i class="fa fa-circle-o text-yellow"></i> Add Event</a></li>
+                    <li><a href="{{route('promoterEvents.add')}}"><i class="fa fa-circle-o text-yellow"></i> Add Event</a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Create Account</a></li>
                 </ul>
             </li>

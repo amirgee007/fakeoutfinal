@@ -88,12 +88,12 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
         'as' => 'promoterEvents.index',
         'uses' => 'Admin\EventController@promoterIndex'));
 
-    Route::get('/promoterEvents/create', array(
-        'as' => 'promoterEvents.create',
-        'uses' => 'Admin\EventController@promoterCreate'));
-
-    Route::post('/promoterEvents/add', array(
+    Route::get('/promoterEvents/add', array(
         'as' => 'promoterEvents.add',
+        'uses' => 'Admin\EventController@promoterAdd'));
+
+    Route::post('/promoterEvents/create', array(
+        'as' => 'promoterEvents.create',
         'uses' => 'Admin\EventController@promoterStore'));
 
 
@@ -111,6 +111,8 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
         'uses' => 'Admin\EventController@promoterdestroy'));
 
 
+
+////////////////////////////////////////////////////////////////////////
 });
 
 
