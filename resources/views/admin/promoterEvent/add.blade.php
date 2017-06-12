@@ -59,9 +59,6 @@
                             <div class="box-body">
                                 {{csrf_field()}}
 
-
-
-
                                 <div class="form-group">
                                     <label for="tittle">Event Title</label>
                                    <input name="name" placeholder="Give it a short distinct name" class="form-control"  required type="text">
@@ -75,9 +72,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tittle">Starts</label>
-
                                         <input name="starts_date" placeholder="Start Date" class="form-control"  required type="date">
-
                                     </div>
                                 </div>
 
@@ -93,7 +88,6 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tittle">Ends</label>
-
                                         <input name="starts_date" placeholder="Start Date" class="form-control"  required type="date">
                                     </div>
                                 </div>
@@ -112,14 +106,37 @@
                                             <span style="background-color: #00AA88" class="btn btn-default btn-file" onclick="HandleBrowseClick('input-image-hidden');">Add Event Image</span>
                                             <input style="display:none" name="image" id="input-image-hidden" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" type="file" accept="image/jpeg, image/png">
                                             <img id="image-preview" align="middle" style="height:100px; width:100px;"  src=""/>
-
                                         </div>
                                     </div>
+
+                                <div class="form-group">
+                                    <label for="event_type">Event Type</label>
+                                    <select name="event_type" id="event_type" class="form-control"  required>
+                                        <option value="">Select Type</option>
+                                        <option value="vip">Vip</option>
+                                        <option value="general">general</option>
+                                        <option value="invitation">invitation</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eventCodes">Event Codes</label>
+                                    <textarea rows="5" id="eventCodes"  class="form-control" name="eventCodes" required></textarea>
+                                    One entry per Comma Separated please.
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="comments">Comments</label>
+                                    <textarea rows="3" id="comments"  class="form-control" name="comments" required></textarea>
+                                </div>
+
 
                         </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Add New</button>
+                                <a  href="{{route('promoterEvents.index')}}" class="btn btn-danger">Cancel</a>
                             </div>
+
                         </div>
                         </form>
                 </div>

@@ -64,9 +64,14 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('promoterEvents.index')}}"><i class="fa fa-circle-o text-red"></i> View All Events </a></li>
-                    <li><a href="{{route('promoterEvents.add')}}"><i class="fa fa-circle-o text-yellow"></i> Add Event</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Create Account</a></li>
+
+
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> Personal </a></li>
+                    <li><a href="{{route('promoterEvents.add')}}"><i class="fa fa-circle-o text-yellow"></i> Create an Event</a></li>
+                    <li><a href="{{route('promoterEvents.index')}}"><i class="fa fa-circle-o text-red"></i> All Events </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> Ticket Type </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> Ticket Block List </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> Notifications </a></li>
                 </ul>
             </li>
 

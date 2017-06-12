@@ -139,6 +139,15 @@ class EventController extends Controller
     public function promoterStore(Request $request)
     {
 
+//  "name" => "tittle"
+//  "location" => "location"
+//  "starts_date" => "111111-11-11"
+//  "ends_time" => "11:11"
+//  "image" => "admin.jpg"
+//  "event_type" => "general"
+//  "eventCodes" => "jani"
+//  "comments" => "asdf"
+
         dd($request->all());
         if ($request->isMethod('post')) {
 
