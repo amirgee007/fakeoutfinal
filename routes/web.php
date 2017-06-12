@@ -96,6 +96,10 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
         'as' => 'promoterEvents.create',
         'uses' => 'Admin\EventController@promoterStore'));
 
+    Route::get('/promoterEvents/showBarcode/{id}', array(
+        'as' => 'promoterEvents.create.showBarcode',
+        'uses' => 'Admin\EventController@showBarcode'));
+
 
     Route::get('/promoterEvents/{id}', array(
         'as' => 'promoterEvents.edit',
@@ -109,6 +113,8 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
     Route::get('/promoterEvents/delete/{id}', array(
         'as' => 'promoterEvents.delete',
         'uses' => 'Admin\EventController@promoterdestroy'));
+
+
 
 
 

@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "twbs/bootstrap": "^3.3",
         "laravelcollective/html": "5.3.",
-        "rap2hpoutre/laravel-log-viewer": "^0.10.2"
+        "rap2hpoutre/laravel-log-viewer": "^0.10.2",
+        "milon/barcode": "^5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

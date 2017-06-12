@@ -16,6 +16,17 @@ class Event extends Model
         'name',
         'updated_at',
         'created_at',
+        'location',
+        'starts_date',
+        'start_time',
+        'start_time',
+        'ends_date',
+        'ends_time',
+        'image',
+        'event_type',
+        'ticket_type',
+        'comments',
+
     ];
 
     public function codes()
