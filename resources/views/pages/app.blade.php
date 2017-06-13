@@ -23,20 +23,40 @@
 
     .card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
     body{ background: #EDECEC; padding:50px}
+
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+        background-color: midnightblue;
+        color: white;
+    }
+
+
 </style>
 
 @section('content')
-
     <section id="intro" class="intro">
         <div class="intro-content">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="panel panel-default">
+                            @include('admin.alerts.alert')
                             @section('dashboard')
 
                                     <ul class="nav nav-tabs tabs-3 indigo" role="tablist">
-                                        <li class="nav-item">
+                                        <li class="nav-item  active">
                                             <a class="nav-link active" data-toggle="tab" href="#personal" role="tab"><i class="fa fa-user" aria-hidden="true"></i>   Personal</a>
                                         </li>
 
@@ -90,3 +110,18 @@
     <br/>
 
 @endsection
+
+<script type="text/javascript">
+    function HandleBrowseClick(input_image)
+    {
+        var fileinput = document.getElementById(input_image);
+        fileinput.click();
+    }
+
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 4000);
+
+</script>

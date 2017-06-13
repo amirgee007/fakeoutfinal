@@ -24,31 +24,52 @@ Route::post('/registernew', 'PagesController@register');
 
 Route::get('/about', 'PagesController@about');
 
+//////////////////////////Front End Routes Logged In Users//////////////////////////////////
+
+Route::get('/app', array(
+    'as' => 'app',
+    'uses' => 'AppController@appLaunch'));
 
 
-Route::get('/event', 'AppController@event');
-Route::get('/event/add', 'AppController@eventAdd');
-Route::get('/event/edit', 'AppController@eventEdit');
-Route::post('/event/add', 'AppController@Add');
-Route::get('/event/list/{id}', 'AppController@eventList');
-Route::get('/app', 'AppController@appLaunch')->name('app');
+Route::get('/event', array(
+    'as' => 'front.event.show',
+    'uses' => 'AppController@event'));
+
+Route::get('/event/add', array(
+    'as' => 'front.event.add',
+    'uses' => 'AppController@eventAdd'));
+
+Route::post('/event/add', array(
+    'as' => 'front.event.add.post',
+    'uses' => 'AppController@Add'));
 
 
-Route::post('/link', array(
-    'as' => 'name',
-    'uses' => 'Admin\AdminController@dashboard'));
+Route::get('/event/add/showBarcode/{id}', array(
+    'as' => 'front.event.add.showBarcode',
+    'uses' => 'AppController@showBarcode'));
+
+
+Route::get('/event/edit', array(
+    'as' => 'front.event.edit',
+    'uses' => 'AppController@eventEdit'));
+
+
+Route::get('/event/list/{id}', array(
+    'as' => 'front.event.list',
+    'uses' => 'AppController@eventList'));
 
 
 
 
 
+////////////////////////////////////////////////////Admin Pannel/////////////////////////
+///
+///
 Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
-
 
     Route::post('/dashboard', array(
         'as' => 'post.dashboard',
         'uses' => 'Admin\AdminController@dashboard'));
-
 
     Route::get('/dashboard', array(
         'as' => 'get.dashboard',
