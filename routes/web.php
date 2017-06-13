@@ -1,6 +1,6 @@
 <?php
 
-//Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('/admin', 'AdminAuth\AuthController@showLoginForm');
 Route::post('/adminlogin', 'AdminAuth\AuthController@login');
@@ -10,10 +10,36 @@ Route::get('/logoutApp', array(
     'as' => 'logoutApp',
     'uses' => 'Auth\LoginController@logout'));
 
+Auth::routes();
 
 Route::post('/notification', function(){
     return \App\FakeOut\Helper::readNotifications();
 })->name('read.notifications');
+
+
+
+Route::get('/', 'PagesController@base')->name('index');
+
+Route::post('/registernew', 'PagesController@register');
+
+Route::get('/about', 'PagesController@about');
+
+
+
+Route::get('/event', 'AppController@event');
+Route::get('/event/add', 'AppController@eventAdd');
+Route::get('/event/edit', 'AppController@eventEdit');
+Route::post('/event/add', 'AppController@Add');
+Route::get('/event/list/{id}', 'AppController@eventList');
+Route::get('/app', 'AppController@appLaunch')->name('app');
+
+
+Route::post('/link', array(
+    'as' => 'name',
+    'uses' => 'Admin\AdminController@dashboard'));
+
+
+
 
 
 Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
@@ -122,22 +148,12 @@ Route::group(['middleware' => ['admin'] , 'prefix' => '/admin' ], function () {
 });
 
 
-Route::get('/', 'PagesController@base')->name('index');
-
-Route::post('/registernew', 'PagesController@register');
-
-Route::get('/about', 'PagesController@about');
 
 
-// Event manipulation section
-Route::get('/event', 'AppController@event');
-Route::get('/event/add', 'AppController@eventAdd');
-Route::get('/event/edit', 'AppController@eventEdit');
-Route::post('/event/add', 'AppController@Add');
-Route::get('/event/list/{id}', 'AppController@eventList');
-Route::get('/app', 'AppController@appLaunch')->name('app');
 
-Auth::routes();
+
+
+
 
 //api routes
 Route::get('/api', 'ApiController@api');

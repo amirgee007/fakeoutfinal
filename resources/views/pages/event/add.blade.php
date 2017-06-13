@@ -35,37 +35,61 @@
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/event/add') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('eventName') ? ' has-error' : '' }}">
+            <div class="form-group">
                 <label for="eventName" class="col-md-4 control-label">Event Name</label>
-
                 <div class="col-md-6">
-                    <input id="eventName" type="text" class="form-control" name="eventName" value="{{ old('eventName') }}"
-                           required autofocus>
-
-                    @if ($errors->has('eventName'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('eventName') }}</strong>
-                                    </span>
-                    @endif
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
                 </div>
             </div>
 
-            <div class="form-group{{ $errors->has('eventCodes') ? ' has-error' : '' }}">
-                <label for="password" class="col-md-4 control-label">Ticket codes</label>
-
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
                 <div class="col-md-6">
-                    <textarea rows="10" id="eventCodes" type="password" class="form-control" name="eventCodes"
-                              required>{{ old('eventCodes') }}</textarea>
-                    One entry per line please.
-
-                    @if ($errors->has('eventCodes'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('eventCodes') }}</strong>
-                                    </span>
-                    @endif
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName" class="col-md-4 control-label">Event Name</label>
+                <div class="col-md-6">
+                    <input id="eventName" type="text" class="form-control" name="eventName" required autofocus>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-8 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
