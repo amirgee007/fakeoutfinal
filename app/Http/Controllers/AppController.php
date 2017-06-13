@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Code;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +25,10 @@ class AppController extends Controller
     }
     public function appLaunch()
     {
-        return view('pages/app');
+        $id = Auth::id();
+        $events = Event::where('owner_id', $id)->get();
+
+        return view('pages/app' , ['events' =>$events]);
     }
     public function eventEdit()
     {
@@ -41,6 +46,8 @@ class AppController extends Controller
         //
     }
     // Add logic
+
+
     public function eventList($data)
     {
         $id = Auth::id();
@@ -52,42 +59,69 @@ class AppController extends Controller
     public function Add(Request $request)
     {
 
-        //return view('pages/event/add', ['request' => $request]);
-        //$this->validateAdd($request);
         if ($request->isMethod('post')) {
-            //return $request->input('eventCodes');
 
-            //Add values to db
-            $pdo = DB::connection()->getPdo();
             $id = Auth::id();
-            $result = DB::table('events')->insert(
-                array('name' => $request->input('eventName'), 'owner_id' => $id)
-            );
-            if ( $result )  {
-                $rowId = $pdo->lastInsertId();
 
-                foreach(preg_split("/((\r?\n)|(\r\n?))/", $request->input('eventCodes')) as $code){
-                    DB::table('codes')->insert(
-                        array('event_id' => $rowId, 'code' => $code, 'state' => 'true')
-                    );
-                }
+            $event  =  Event::firstOrCreate(array('name' => $request->input('name'), 'owner_id' => $id));
+
+            $event->location =$request->input('location');
+            $event->starts_date =$request->input('starts_date');
+            $event->start_time =$request->input('start_time');
+            $event->ends_date =$request->input('ends_date');
+            $event->ends_time =$request->input('ends_time');
+            $event->image =$request->input('image');
+            $event->event_type =$request->input('event_type');
+            $event->ticket_type =$request->input('ticket_type');
+            $event->comments =$request->input('comments');
+            $event->save();
 
 
+            foreach(explode(',' ,$request->input('eventCodes'))  as $code){
+
+                $code  =  Code::firstOrCreate(array('event_id' => $event->id, 'code' => $code));
+
+                $code->update(
+
+                    array('event_id' => $event->id, 'code' => $code->code, 'state' => 'true')
+                );
             }
 
 
+            if ($event){
+                session()->flash('alert-success', 'Event has been Successfully Created!');
+                return redirect()->route('front.event.add.showBarcode' ,$event->id);
+            }
 
-            return view('pages/event/add', ['data' => $request]);
+            session()->flash('alert-info', 'Error in Insertion');
+
+            return back();
+
         }
-
-
-        return $this->sendFailedAddResponse($request);
+            return view('pages/event/add', ['data' => $request]);
     }
 
-    protected function attemptAdd(Request $request)
-    {
-        return true;
+    public function showBarcode($id){
+
+        $allCodes =  Code::where('event_id' , $id)->orderBy('id')->get()->pluck('code')->toArray();
+
+        if (isset($allCodes)){
+
+            return view('pages.barcodes.barcodeShow', ['allCodes' => $allCodes]);
+        }else{
+
+            session()->flash('alert-info', 'Error in Showing Barcode');
+            return back();
+
+        }
     }
+
+
+
+
+
+
+
 
     protected function validateAdd(Request $request)
     {

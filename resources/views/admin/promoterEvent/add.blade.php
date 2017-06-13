@@ -80,7 +80,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="tittle">Time</label>
-                                        <input name="ends_time" placeholder="Ends Time" class="form-control"  required type="time">
+                                        <input name="start_time" placeholder="Start Time" class="form-control"  required type="time">
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tittle">Ends</label>
-                                        <input name="starts_date" placeholder="Start Date" class="form-control"  required type="date">
+                                        <input name="ends_date" placeholder="Ends Date" class="form-control"  required type="date">
                                     </div>
                                 </div>
 
@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
 
-
+                            <div class="row">
                                     <div class="col-sm-7">
                                         <div class="form-group">
                                             <span style="background-color: #00AA88" class="btn btn-default btn-file" onclick="HandleBrowseClick('input-image-hidden');">Add Event Image</span>
@@ -108,6 +108,7 @@
                                             <img id="image-preview" align="middle" style="height:100px; width:100px;"  src=""/>
                                         </div>
                                     </div>
+                            </div>
 
                                 <div class="form-group">
                                     <label for="event_type">Event Type</label>
@@ -120,9 +121,19 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="ticket_type">Ticket Type</label>
+                                    <select name="ticket_type" id="ticket_type" class="form-control"  required>
+                                        <option value="">Select Type</option>
+                                        <option value="vip">Vip</option>
+                                        <option value="general">general</option>
+                                        <option value="invitation">invitation</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="eventCodes">Event Codes</label>
                                     <textarea rows="5" id="eventCodes"  class="form-control" name="eventCodes" required></textarea>
-                                    One entry per Comma Separated please.
+                                    <p style="color: red">One entry per Comma Separated please.</p>
                                 </div>
 
                                 <div class="form-group">
@@ -133,7 +144,7 @@
 
                         </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Add New</button>
+                                <button type="submit" class="btn btn-primary">Generator Barcode And Add </button>
                                 <a  href="{{route('promoterEvents.index')}}" class="btn btn-danger">Cancel</a>
                             </div>
 

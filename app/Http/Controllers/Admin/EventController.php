@@ -139,37 +139,38 @@ class EventController extends Controller
     public function promoterStore(Request $request)
     {
 
-//  "name" => "tittle"
-//  "location" => "location"
-//  "starts_date" => "111111-11-11"
-//  "ends_time" => "11:11"
-//  "image" => "admin.jpg"
-//  "event_type" => "general"
-//  "eventCodes" => "jani"
-//  "comments" => "asdf"
-
-        dd($request->all());
         if ($request->isMethod('post')) {
 
             $id = Auth::id();
 
-            $event  =  Event::firstOrCreate(array('name' => $request->input('eventName'), 'owner_id' => $id));
+            $event  =  Event::firstOrCreate(array('name' => $request->input('name'), 'owner_id' => $id));
 
-            foreach(preg_split("/((\r?\n)|(\r\n?))/", $request->input('eventCodes')) as $code){
+            $event->location =$request->input('location');
+            $event->starts_date =$request->input('starts_date');
+            $event->start_time =$request->input('start_time');
+            $event->ends_date =$request->input('ends_date');
+            $event->ends_time =$request->input('ends_time');
+            $event->image =$request->input('image');
+            $event->event_type =$request->input('event_type');
+            $event->ticket_type =$request->input('ticket_type');
+            $event->comments =$request->input('comments');
+            $event->save();
+
+
+            foreach(explode(',' ,$request->input('eventCodes'))  as $code){
 
                 $code  =  Code::firstOrCreate(array('event_id' => $event->id, 'code' => $code));
-
 
                 $code->update(
 
                     array('event_id' => $event->id, 'code' => $code->code, 'state' => 'true')
-
                 );
             }
 
+
             if ($event){
                 session()->flash('alert-success', 'Event has been Successfully Created!');
-                return back();
+                return redirect()->route('promoterEvents.create.showBarcode' ,$event->id);
             }
 
             session()->flash('alert-info', 'Error in Insertion');
@@ -181,6 +182,20 @@ class EventController extends Controller
 
     }
 
+    public function showBarcode($id){
+
+      $allCodes =  Code::where('event_id' , $id)->orderBy('id')->get()->pluck('code')->toArray();
+
+        if (isset($allCodes)){
+
+            return view('admin.barcodes.barcodeShow', ['allCodes' => $allCodes]);
+        }else{
+
+            session()->flash('alert-info', 'Error in Showing Barcodes');
+            return back();
+
+        }
+    }
 
     public function promoterEdit()
     {
