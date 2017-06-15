@@ -51,7 +51,7 @@
                             <div class="col-md-6 text-center">
                                 <input style="display:none" name="image" id="input-image-hidden" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" type="file" accept="image/jpeg, image/png">
 
-                                @if($userProfile->hasImage())
+                                @if(!is_null($userProfile) && $userProfile->hasImage())
                                     <img id="image-preview" align="middle"  style="height:100px; width:150px;"  src="{{$userProfile->getImageUrl()}}"/>
 
                                 @else

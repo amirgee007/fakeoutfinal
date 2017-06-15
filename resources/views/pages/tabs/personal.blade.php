@@ -27,7 +27,7 @@
                                 Business Company
                             </div>
                             <div class="col-md-8">
-                                <p class="capitalize">{{$userProfile->business_company or ''}} </p>
+                                <p class="capitalize">{{$userProfile->business_company or 'n/a'}} </p>
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@
                                 Address Code
                             </div>
                             <div class="col-md-8">
-                                <p class="capitalize">{{$userProfile->address_code or ''}} </p>
+                                <p class="capitalize">{{$userProfile->address_code or 'n/a'}} </p>
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                 City
                             </div>
                             <div class="col-md-8">
-                                <p class="capitalize">{{$userProfile->city or ''}} </p>
+                                <p class="capitalize">{{$userProfile->city or 'n/a'}} </p>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                                 Country
                             </div>
                             <div class="col-md-8">
-                                <p class="capitalize">{{$userProfile->country or ''}} </p>
+                                <p class="capitalize">{{$userProfile->country or 'n/a'}} </p>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                                 Subscriptions
                             </div>
                             <div class="col-md-8">
-                                <p class="capitalize">{{$userProfile->subscriptions or ''}} </p>
+                                <p class="capitalize">{{$userProfile->subscriptions or 'n/a'}} </p>
                             </div>
                         </div>
 
