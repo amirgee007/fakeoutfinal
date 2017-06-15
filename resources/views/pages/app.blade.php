@@ -31,14 +31,19 @@
     }
 
     th, td {
-        text-align: left;
         padding: 8px;
+
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
+        text-align: center;
+
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
     th {
-        background-color: midnightblue;
+        background-color: lightseagreen;
         color: white;
     }
 

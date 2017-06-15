@@ -5,13 +5,13 @@
             <td>
                 <table border="1" width="100%">
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Event Type</th>
-                        <th>Ticket Type</th>
+                        <th style="text-align: center;">Id</th>
+                        <th style="text-align: center;">Name</th>
+                        <th style="text-align: center;">Location</th>
+                        <th style="text-align: center;">Start Date</th>
+                        <th style="text-align: center;">End Date</th>
+                        <th style="text-align: center;">Event Type</th>
+                        <th style="text-align: center;">Ticket Type</th>
                     </tr>
                     @foreach($events as $event)
                     <tr>
