@@ -4,38 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class UserProfile extends Model
 {
 
-    protected $table = 'events';
+    protected $table = 'user_profile';
 
-    const UPLOAD_PATH = 'uploads/events';
+    const UPLOAD_PATH = 'uploads/userProfile';
     const DEFAULT_IMAGE = 'uploads/default.png';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'id',
-        'owner_id',
-        'name',
-        'updated_at',
-        'created_at',
-        'location',
-        'starts_date',
-        'start_time',
-        'start_time',
-        'ends_date',
-        'ends_time',
-        'image',
-        'event_type',
-        'ticket_type',
-        'comments',
 
-    ];
+    protected $fillable = ['id' , 'user_id' , 'business_company', 'image', 'id_number' ,
+        'address_code' , 'city' , 'country' , 'subscriptions'];
 
 
-    public function codes()
-    {
-        return $this->hasMany('App\Models\Code' , 'event_id' , 'id');
+    public function user(){
+        return $this->hasOne(\App\User::class , 'user_id' , 'id');
     }
+
 
     public static function getStoragePath() {
         return public_path(static::UPLOAD_PATH);
@@ -56,4 +40,5 @@ class Event extends Model
 
         return '';
     }
+
 }

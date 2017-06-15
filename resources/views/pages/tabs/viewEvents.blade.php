@@ -12,6 +12,7 @@
                         <th style="text-align: center;">End Date</th>
                         <th style="text-align: center;">Event Type</th>
                         <th style="text-align: center;">Ticket Type</th>
+                        <th style="text-align: center;">Barcode</th>
                     </tr>
                     @foreach($events as $event)
                     <tr>
@@ -22,7 +23,9 @@
                         <td>{{$event->end_date}}</td>
                         <td>{{$event->event_type}}</td>
                         <td>{{$event->ticket_type}}</td>
-
+                        <td>
+                            <a target="_blank" href="{{ route('front.event.add.showBarcode' ,$event->id) }}"><i class="fa fa-fw fa-eye text-primary"></i></a>
+                        </td>
                     </tr>
                     @endforeach
 

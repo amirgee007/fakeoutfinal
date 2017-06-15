@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-    About
+    Barcodes
     @parent
 @stop
 

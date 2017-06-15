@@ -49,6 +49,19 @@ Route::get('/event/add/showBarcode/{id}', array(
     'uses' => 'AppController@showBarcode'));
 
 
+Route::get('/add/user-profile/{id}', array(
+    'as' => 'front.user.profile.show',
+    'uses' => 'UsersProfileController@userProfileShow'));
+
+Route::post('/add/user-profile/store', array(
+    'as' => 'front.user.profile.store',
+    'uses' => 'UsersProfileController@userProfilestore'));
+
+
+
+
+
+
 Route::get('/event/edit', array(
     'as' => 'front.event.edit',
     'uses' => 'AppController@eventEdit'));

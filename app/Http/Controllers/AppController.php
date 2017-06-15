@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Code;
 use App\Models\Event;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,8 +28,9 @@ class AppController extends Controller
     {
         $id = Auth::id();
         $events = Event::where('owner_id', $id)->get();
+        $userProfile = UserProfile::where('user_id', $id)->first();
 
-        return view('pages/app' , ['events' =>$events]);
+        return view('pages/app' ,compact('events' ,'userProfile'));
     }
     public function eventEdit()
     {
@@ -58,7 +60,6 @@ class AppController extends Controller
     }
     public function Add(Request $request)
     {
-
         if ($request->isMethod('post')) {
 
             $id = Auth::id();
@@ -70,11 +71,18 @@ class AppController extends Controller
             $event->start_time =$request->input('start_time');
             $event->ends_date =$request->input('ends_date');
             $event->ends_time =$request->input('ends_time');
-            $event->image =$request->input('image');
+            if ($request->hasFile('image')) {
+                $eventImage = $request->file('image');
+                $event->image = $fileName = uniqid('event') . '.' . $eventImage->getClientOriginalExtension();
+                $fullPath = \App\Models\Event::getStoragePath();
+                $eventImage->move($fullPath, $fileName);
+            }
             $event->event_type =$request->input('event_type');
             $event->ticket_type =$request->input('ticket_type');
             $event->comments =$request->input('comments');
             $event->save();
+
+
 
 
             foreach(explode(',' ,$request->input('eventCodes'))  as $code){
@@ -101,24 +109,19 @@ class AppController extends Controller
             return view('pages/event/add', ['data' => $request]);
     }
 
+
     public function showBarcode($id){
 
         $allCodes =  Code::where('event_id' , $id)->orderBy('id')->get()->pluck('code')->toArray();
 
         if (isset($allCodes)){
-
             return view('pages.barcodes.barcodeShow', ['allCodes' => $allCodes]);
         }else{
-
             session()->flash('alert-info', 'Error in Showing Barcode');
             return back();
 
         }
     }
-
-
-
-
 
 
 

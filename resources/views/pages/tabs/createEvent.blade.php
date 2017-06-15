@@ -2,7 +2,7 @@
     <br>
 
     <div class="panel-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/event/add') }}">
+        <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/event/add') }}">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -48,9 +48,9 @@
             <div class="form-group">
                 <label for="eventName" style="margin-top:31px" class="col-md-4 control-label">Event Image</label>
                 <div class="col-md-6">
-                    <span style="background-color: #00AA88" class="btn btn-default btn-file" s onclick="HandleBrowseClick('input-image-hidden');">Click to Add Event Image</span>
+                    <span style="background-color: #00AA88" class="btn btn-default btn-file" onclick="HandleBrowseClick('input-image-hidden');">Click to Add Event Image</span>
                     <input style="display:none" name="image" id="input-image-hidden" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" type="file" accept="image/jpeg, image/png">
-                    <img id="image-preview" align="middle"  style="height:100px; width:100px;"  src=""/>
+                    <img id="image-preview" align="middle"  style="height:100px; width:150px;"  src=""/>
                 </div>
             </div>
 
