@@ -50,7 +50,7 @@
                 <div class="col-md-6">
                     <span style="background-color: #00AA88" class="btn btn-default btn-file" onclick="HandleBrowseClick('input-image-hidden');">Click to Add Event Image</span>
                     <input style="display:none" name="image" id="input-image-hidden" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" type="file" accept="image/jpeg, image/png">
-                    <img id="image-preview" align="middle"  style="height:100px; width:150px;"  src=""/>
+                    <img id="image-preview" class="img1" align="middle"  style="height:100px; width:150px;"  src=""/>
                 </div>
             </div>
 

@@ -22,7 +22,7 @@
     .tab-content{padding:20px}
 
     .card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
-    body{ background: #EDECEC; padding:50px}
+    body{ background: #EDECEC; }
 
 
     table {
@@ -47,7 +47,7 @@
         color: white;
     }
 
-    img {
+    .img1 {
         border: 1px solid #ddd;
         border-radius: 4px;
         padding: 5px;
@@ -55,7 +55,7 @@
         box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     }
 
-    img:hover {
+    .img1:hover {
         box-shadow: 0 0 3px 2px rgba(0, 142, 187, 0.5);
     }
 

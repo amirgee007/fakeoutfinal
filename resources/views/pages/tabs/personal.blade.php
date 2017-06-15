@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-sm-3 text-center" style="">
             @if(!is_null($userProfile) && $userProfile->hasImage())
-                <img src="{{$userProfile->getImageUrl()}}" alt="User Image" height="120px" width="190px">
+                <img class="img1" src="{{$userProfile->getImageUrl()}}" alt="User Image" height="120px" width="190px">
             @else
-            <img src="uploads/default.png" alt="Smiley face" height="120px" width="190px">
+            <img class="img1" src="uploads/default.png" alt="Smiley face" height="120px" width="190px">
             @endif
                 <br/>
             <br/>

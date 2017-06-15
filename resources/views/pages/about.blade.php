@@ -6,7 +6,6 @@
 @stop
 
 @section('content')
-
     <section id="content1" class="home-section">
 
         <div class="container">
@@ -50,6 +49,4 @@
         </div>
 
     </section>
-    <!-- /Section: content -->
-
 @endsection
